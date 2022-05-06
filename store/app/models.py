@@ -2,7 +2,6 @@ from django.db import models
 
 from django.urls import reverse
 
-
 class Product(models.Model):
     title = models.CharField(max_length=255, verbose_name='Product title')
     slug = models.SlugField(max_length=255, unique=True,
@@ -18,8 +17,7 @@ class Product(models.Model):
         auto_now=True, verbose_name='Product update time')
     is_published = models.BooleanField(default=True)
     categ = models.ForeignKey(
-        'Category', on_delete=models.PROTECT,  verbose_name='Product category',
-        related_name='get_products')
+        'Category', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -67,7 +65,10 @@ class Customer(models.Model):
     def __str__(self):
         return self.user_email
 
+    USERNAME_FIELD = 'user_email'
+    REQUIRED_FIELDS = []
     class Meta:
         verbose_name = 'Customer'
         verbose_name_plural = 'Customers'
         ordering = ['id']
+

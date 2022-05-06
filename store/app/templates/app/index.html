@@ -1,0 +1,46 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for cat in categories %}
+
+<div class="fashion_section">
+	<div id="main_slider" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div class="container">
+					<h1 class="fashion_taital">{{ cat.name }}</h1>
+					<div class="fashion_section_2">
+						<div class="row">
+							{% for product in cat.product_set.all %}
+							<div class="col-lg-4 col-sm-4">
+								<div class="box_main">
+									<h4 class="shirt_text">{{ product.title }}</h4>
+									<p class="price_text">{{ product.price }}<span style="color: #262626;">$ 30</span></p>
+									<div class="tshirt_img"><img src="{% static 'app/images/tshirt-img.png' %}"></div>
+									<div class="btn_main">
+										<div class="buy_bt"><a href="#">Add to cart</a></div>
+										{% comment %}<div class="seemore_bt"><a href="#">See More</a></div>{% endcomment %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		<a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+			<i class="fa fa-angle-right"></i>
+		</a>
+	</div>
+
+	{% endfor %}
+</div>
+{% endfor %}
+{% endblock %}
+
+

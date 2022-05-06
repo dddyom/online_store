@@ -1,6 +1,9 @@
 .env
 tags
+pyrightconfig.json
 venv/
 store/config/__pycache__/
 store/app/__pycache__/
 store/app/migrations/
+store/app/static/
+store/app/teplatetags/__pycache__/

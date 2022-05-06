@@ -1,0 +1,24 @@
+{% load static %}
+{% load app_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% include 'app/meta.html' %}
+
+		<title>{{ title }}</title>
+		{% include 'app/links.html' %}
+	</head>
+	<body>
+		{% include 'app/topnav.html' %}
+
+		{% block content %}
+		{% endblock %}
+
+		{%include 'app/footer.html' %}
+		{%include 'app/copyright.html' %}
+
+
+		{%include 'app/scripts.html' %}
+	</body>
+</html>

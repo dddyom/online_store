@@ -1,0 +1,33 @@
+{% load app_tags %}
+<div class="container">
+	<div class="header_section_top">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="custom_menu">
+
+					{% show_cats %}
+					<ul>
+						<li><a href="{%url 'home' %}">Home</a></li>
+
+						{% if request.user.is_authenticated %}
+
+						<li><a href="#">
+								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+								<span class="padding_10">Cart</span></a>
+						</li>
+
+						<li><a href="{% url 'logout' %}"> <i class="fa fa-user" aria-hidden="true"></i>
+								<span class="padding_10">{{ user.username }} | Logout </span></a>
+						</li>
+						{% else %}
+						<li><a href="{% url 'login' %}"> <i class="fa fa-user" aria-hidden="true"></i>
+								<span class="padding_10">Sign in</span></a>
+							<a href="{% url 'register' %}"><span class="padding_10">Sign up</span></a>
+						</li></a>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
