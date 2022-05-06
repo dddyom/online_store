@@ -6,4 +6,4 @@ store/config/__pycache__/
 store/app/__pycache__/
 store/app/migrations/
 store/app/static/
-store/app/teplatetags/__pycache__/
+store/app/templatetags/__pycache__/
